@@ -5,7 +5,32 @@ body {
   text-align: center;
   height: 100vh;
   width: 100%;
-  background: linear-gradient(to bottom right, rgba(9,50,59,1), rgba(14,0,77,1), rgba(0,0,0,1));  
+  background: linear-gradient(to bottom right, rgba(9, 50, 59, 1), rgba(14, 0, 77, 1), rgba(0, 0, 0, 1));
   color: #fff;
   overflow: hidden;
+}
+
+#pixie1,
+#pixie2,
+#pixie3 {
+  position: absolute;
+  background: radial-gradient(rgba(254, 250, 212, .5), rgba(0, 0, 0, 0) 40%);
+}
+#pixie1 {
+  height: 50px;
+  width: 50px;
+  top: 100px;
+  left: 100px;
+}
+#pixie2 {
+  height: 25px;
+  width: 25px;
+  top: 200px;
+  left: 200px;
+}
+#pixie3 {
+  height: 35px;
+  width: 35px;
+  top: 100px;
+  left: 175px;
 }
