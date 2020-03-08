@@ -38,6 +38,7 @@ body {
 
 #instructions {
   color: rgb(255, 255, 204);
+  transition: font-size .5s;
   animation: glow 1s ease-in-out infinite alternate;
 }
 

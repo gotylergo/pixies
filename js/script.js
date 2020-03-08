@@ -28,3 +28,17 @@ document.onmousemove = function (e) {
   document.getElementById('pixie3').style.left = randomGenerator(e.clientX);
   document.getElementById('pixie3').style.top = randomGenerator(e.clientY);
 }
+
+// Animate instructions on mouseover
+
+window.onload = mouseOverInstructions;
+
+function mouseOverInstructions() {
+  let instructions = document.getElementById('instructions');
+  instructions.onmouseover = function () {
+    this.style.fontSize = '1.5em';
+  };
+  instructions.onmouseleave = function() {
+    this.style.fontSize = '1em';
+  }
+}
