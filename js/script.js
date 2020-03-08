@@ -34,11 +34,23 @@ document.onmousemove = function (e) {
 window.onload = mouseOverInstructions;
 
 function mouseOverInstructions() {
+
   let instructions = document.getElementById('instructions');
+  let instrOriginalFontSize = instructions.style.fontSize;
+  let instrOriginalColor = instructions.style.color;
+  let lettersArr = instructions.innerText.split('');
+  let newInstructions = '';
+  for (let letter in lettersArr) {
+    newInstructions += `<span class="letter">${lettersArr[letter]}</span>`;
+  }
+  instructions.innerHTML = newInstructions;
+
   instructions.onmouseover = function () {
-    this.style.fontSize = '1.5em';
+    this.style.color = 'lightgreen';
   };
+
   instructions.onmouseleave = function() {
-    this.style.fontSize = '1em';
+    // this.style.fontSize = instrOriginalFontSize;
+    this.style.color = instrOriginalColor;
   }
 }

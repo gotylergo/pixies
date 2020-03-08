@@ -38,8 +38,17 @@ body {
 
 #instructions {
   color: rgb(255, 255, 204);
-  transition: font-size .5s;
+  transition: font-size .5s, color 1s;
   animation: glow 1s ease-in-out infinite alternate;
+}
+
+.letter {
+  transition: font-size 1s;
+}
+
+.letter:hover {
+  /* transition: font-size .5s; */
+  font-size: 2em;
 }
 
 @keyframes glow {
