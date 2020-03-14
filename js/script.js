@@ -49,8 +49,14 @@ function mouseOverInstructions() {
     this.style.color = 'lightgreen';
   };
 
-  instructions.onmouseleave = function() {
+  instructions.onmouseleave = function () {
     // this.style.fontSize = instrOriginalFontSize;
     this.style.color = instrOriginalColor;
   }
 }
+
+window.addEventListener('deviceorientation', function(e) {
+
+  document.getElementById('instructions').style = `transform: perspective(1em) rotateZ(${e.gamma/25}deg) rotateY(${e.alpha/25}deg) rotateX(${e.beta/25}deg)`;
+
+})

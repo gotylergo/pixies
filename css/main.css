@@ -59,3 +59,14 @@ body {
     text-shadow: 3px 3px 5px rgb(179, 231, 255);
   }
 }
+
+/* Perspective */
+
+.wrapper {
+  perspective: 15px;
+}
+#gyro {
+  height:100px;
+  transition: transform 0.5s;
+  backface-visibility: hidden;
+}
