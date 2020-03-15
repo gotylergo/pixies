@@ -55,8 +55,17 @@ function mouseOverInstructions() {
   }
 }
 
-window.addEventListener('deviceorientation', function(e) {
+// Adjust perspective when deviec is tilted
 
-  document.getElementById('instructions').style = `transform: perspective(1em) rotateZ(${e.gamma/25}deg) rotateY(${e.alpha/25}deg) rotateX(${e.beta/25}deg)`;
+function handleOrientation(e) {
 
-})
+  document.getElementById('instructions').style.transform =
+    `rotateZ(${e.alpha}deg) rotateX(${e.beta}deg) rotateY(${-e.gamma}deg)`;
+
+};
+
+if (window.DeviceOrientationEvent) {
+  window.addEventListener('deviceorientation', handleOrientation, false);
+} else {
+  console.info('Device does not support deviceorientation. Text will be static.')
+}
