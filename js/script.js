@@ -61,6 +61,7 @@ function handleOrientation(e) {
 
   document.getElementById('instructions').style.transform =
     `rotateZ(${e.alpha}deg) rotateX(${e.beta}deg) rotateY(${-e.gamma}deg)`;
+
 };
 
 if (window.DeviceOrientationEvent) {
