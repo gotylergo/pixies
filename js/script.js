@@ -55,17 +55,33 @@ function mouseOverInstructions() {
   }
 }
 
-// Adjust perspective when deviec is tilted
+// Adjust perspective when device is tilted
 
 function handleOrientation(e) {
-
   document.getElementById('instructions').style.transform =
     `rotateZ(${e.alpha}deg) rotateX(${e.beta}deg) rotateY(${-e.gamma}deg)`;
-
 };
 
-if (window.DeviceOrientationEvent) {
-  window.addEventListener('deviceorientation', handleOrientation, false);
-} else {
-  console.info('Device does not support deviceorientation. Text will be static.')
+// If permission is required but not granted, show a button to request it
+
+function activateGyro() {
+  if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+    DeviceOrientationEvent.requestPermission()
+      .then(permState => {
+        if (permState === 'granted') {
+          document.getElementById('permissionRequest').style.display = 'none';
+          window.addEventListener('deviceorientation', handleOrientation, false);
+        }
+        else {
+          document.getElementById('permissionRequest').style.display = 'block';
+        }
+      })
+  } else {
+    document.getElementById('permissionRequest').style.display = 'none';
+    if (window.DeviceOrientationEvent) {
+      window.addEventListener('deviceorientation', handleOrientation, false);
+    } else {
+      console.info('Device does not support deviceorientation. Text will be static.')
+    }
+  }
 }
